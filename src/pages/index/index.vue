@@ -2,15 +2,15 @@
   <div class="container">
     <div class="title">任选</div>
     <div class="list">
-      <div v-for="(way, index) in ways" v-text="way" :class="index === wayIndex? 'item.active' : 'item'" @click="wayIndex = index"></div>
+      <div v-for="(way, index) in ways" :key="way" v-text="way" :class="index === wayIndex? 'item.active' : 'item'" @tap="wayIndex = index"></div>
     </div>
     <div class="title">注数</div>
     <div class="list">
-      <div v-for="count in counts" v-text="count" :class="index === countIndex ? 'item.active' : 'item'" @click="countIndex = index"></div>
+      <div v-for="count in counts" :key="count" v-text="count" :class="index === countIndex ? 'item.active' : 'item'" @tap="countIndex = index"></div>
     </div>
-    <navigation>
+    <navigator :url="url">
       <div class="button">随机生成</div>
-    </navigation>
+    </navigator>
   </div>
 </template>
 
@@ -31,6 +31,12 @@ export default {
       counts: [1, 2, 5, 10],
       wayIndex: 1,
       countIndex: 2
+    }
+  },
+  
+  computed: {
+    url () {
+      return `/pages/result/main?way=${this.wayIndex+1}&count=${this.counts[this.countIndex]}` 
     }
   }
 }

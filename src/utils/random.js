@@ -13,3 +13,5 @@ function random (number, count) {
   }
   return r
 }
+
+export default random

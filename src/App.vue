@@ -22,6 +22,7 @@ page {
   font-size: 1.3em;
   font-weight: medium;
   border-bottom: 3rpx solid #c8c8c8;
+  text-align: center;
   color: #f60;
 
   padding: 10rpx 0;

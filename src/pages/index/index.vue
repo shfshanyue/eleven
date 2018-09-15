@@ -2,12 +2,15 @@
   <div class="container">
     <div class="title">任选</div>
     <div class="list">
-      <div v-for="way in ways" v-text="way" class="item"></div>
+      <div v-for="(way, index) in ways" v-text="way" :class="index === wayIndex? 'item.active' : 'item'" @click="wayIndex = index"></div>
     </div>
     <div class="title">注数</div>
     <div class="list">
-      <div v-for="count in counts" v-text="count" class="item"></div>
+      <div v-for="count in counts" v-text="count" :class="index === countIndex ? 'item.active' : 'item'" @click="countIndex = index"></div>
     </div>
+    <navigation>
+      <div class="button">随机生成</div>
+    </navigation>
   </div>
 </template>
 
@@ -25,14 +28,10 @@ export default {
         "七",
         "八"
       ],
-      counts: [1, 5, 10, 20]
+      counts: [1, 2, 5, 10],
+      wayIndex: 1,
+      countIndex: 2
     }
-  },
-
-  methods: {
-  },
-
-  created () {
   }
 }
 </script>
@@ -42,6 +41,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   position: relative;
+  margin-bottom: 32rpx;
 }
 
 .item {
@@ -52,7 +52,23 @@ export default {
   text-align: center;
   line-height: 150rpx;
 
-  border: 4px solid #c8c8c8;
+  border: 6rpx solid #c8c8c8;
   border-radius: 50%;
+}
+
+.item.active {
+  color: #f60;
+  border-color: #f60;
+}
+
+.button {
+  position: absolute;
+  bottom: 48rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #f60;
+
+  padding: 20rpx 30rpx;
+  border: 4rpx solid #f60;
 }
 </style>

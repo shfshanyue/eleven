@@ -52,7 +52,7 @@ export default {
   text-align: center;
   line-height: 150rpx;
 
-  border: 4px solid red;
+  border: 4px solid #c8c8c8;
   border-radius: 50%;
 }
 </style>

@@ -25,6 +25,10 @@ export default {
     this.values = Array.from({ length: count }, x => random(11, way))
     // 70 为 container 两边的 padding, 20 为 item 两边的 margin
     this.width = way > 4 ? (750 - 70 - 16) / way - 20 : 146
+  },
+
+  onUnload () {
+    this.values = []
   }
 }
 </script>

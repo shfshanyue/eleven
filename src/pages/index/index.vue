@@ -57,6 +57,7 @@ export default {
 
   text-align: center;
   line-height: 150rpx;
+  font-size: 1.4em;
 
   border: 6rpx solid #c8c8c8;
   border-radius: 50%;
@@ -73,8 +74,9 @@ export default {
   left: 50%;
   transform: translateX(-50%);
   color: #f60;
+  font-size: 1.3em;
 
   padding: 20rpx 30rpx;
-  border: 4rpx solid #f60;
+  border: 6rpx solid #f60;
 }
 </style>

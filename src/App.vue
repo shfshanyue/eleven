@@ -19,7 +19,7 @@ page {
 }
 
 .title {
-  font-size: 1.3em;
+  font-size: 1.5em;
   font-weight: medium;
   border-bottom: 3rpx solid #c8c8c8;
   text-align: center;

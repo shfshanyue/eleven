@@ -2,9 +2,9 @@
   <div class="container">
     <div v-for="value in values" :key="value" class="list">
       <div class="index">
-        {{ index }}
+        {{ index + 1 }}
       </div>
-      <div v-for="(v, i) in value" v-text="v" :key="v" class="item" :style="{ width: width + 'rpx', height: width + 'rpx' }"></div>
+      <div v-for="(v, i) in value" v-text="v" :key="v" class="item" :style="{ width: width + 'rpx', height: width + 'rpx', fontSize: fontSize, borderWidth: borderWidth }"></div>
     </div>
   </div>
 </template>
@@ -16,7 +16,9 @@ export default {
   data () {
     return {
       values: [],
-      width: 170
+      width: 146,
+      fontSize: '1.4em',
+      borderWidth: '6rpx'
     }
   },
 
@@ -24,7 +26,10 @@ export default {
     const { way, count } = this.$mp.query
     this.values = Array.from({ length: count }, x => random(11, way))
     // 70 为 container 两边的 padding, 20 为 item 两边的 margin
+
     this.width = way > 4 ? (750 - 70 - 16) / way - 20 : 146
+    this.fontSize = way > 4 ? `${1 + (7 - way) * 0.1}em` : '1.4em'
+    this.borderWidth = way > 4 ? `${10 - way}rpx` : '6rpx'
   },
 
   onUnload () {

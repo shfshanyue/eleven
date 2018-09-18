@@ -27,6 +27,10 @@ export default {
     this.values = Array.from({ length: count }, x => random(11, way))
     // 70 为 container 两边的 padding, 20 为 item 两边的 margin
 
+    wx.setNavigationBarTitle({
+      title: `11选5模拟器 (${count}注任选${way})` 
+    })
+
     this.width = way > 4 ? (750 - 70 - 16) / way - 20 : 146
     this.fontSize = way > 4 ? `${1 + (7 - way) * 0.1}em` : '1.4em'
     this.borderWidth = way > 4 ? `${10 - way}rpx` : '6rpx'
@@ -34,6 +38,13 @@ export default {
 
   onUnload () {
     this.values = []
+  },
+
+  onShareAppMessage () {
+    return {
+      title: '11选5小助手',
+      path: '/pages/index/main'
+    } 
   }
 }
 </script>

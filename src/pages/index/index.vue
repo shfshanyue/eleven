@@ -15,6 +15,7 @@
 </template>
 
 <script>
+
 export default {
   data () {
     return {
@@ -38,6 +39,14 @@ export default {
     url () {
       return `/pages/result/main?way=${this.wayIndex+1}&count=${this.counts[this.countIndex]}` 
     }
+  },
+
+  onShareAppMessage () {
+    return {
+      title: '11选5小助手',
+      path: '/pages/index/main',
+      imageUrl: require('./share.jpeg')
+    } 
   }
 }
 </script>
@@ -76,7 +85,7 @@ export default {
   color: #f60;
   font-size: 1.3em;
 
-  padding: 20rpx 30rpx;
-  border: 6rpx solid #f60;
+  padding: 32rpx 50rpx;
+  border: 3rpx solid #f60;
 }
 </style>

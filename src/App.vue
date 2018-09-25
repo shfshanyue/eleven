@@ -15,7 +15,7 @@ page {
 }
 
 .container {
-  padding: 0 35rpx; 
+  padding: 0 35rpx 120rpx; 
 }
 
 .title {
@@ -30,7 +30,7 @@ page {
 }
 
 .footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   height: 120rpx;
   width: 100%;
@@ -45,6 +45,12 @@ page {
   justify-content: center;
   align-items: center;
   border-radius: 0;
+  border: none;
+}
+
+.button::after {
+  border-radius: 0;
+  border: none;
 }
 
 .generate {

@@ -1,10 +1,18 @@
 <template>
-  <div class="container">
-    <div v-for="value in values" :key="value" class="list">
-      <div class="index">
-        {{ index + 1 }}
+  <div>
+    <div class="container">
+      <div v-for="value in values" :key="value" class="list">
+        <div class="index">
+          {{ index + 1 }}
+        </div>
+        <div v-for="(v, i) in value" v-text="v" :key="v" class="item" :style="{ width: width + 'rpx', height: width + 'rpx', fontSize: fontSize, borderWidth: borderWidth }"></div>
       </div>
-      <div v-for="(v, i) in value" v-text="v" :key="v" class="item" :style="{ width: width + 'rpx', height: width + 'rpx', fontSize: fontSize, borderWidth: borderWidth }"></div>
+    </div>
+    <div class="footer">
+      <div class="button generate" @click="generate">
+        继续生成
+      </div>
+      <button class="share button" open-type="share">分享</button>
     </div>
   </div>
 </template>
@@ -24,7 +32,7 @@ export default {
 
   mounted () {
     const { way, count } = this.$mp.query
-    this.values = Array.from({ length: count }, x => random(11, way))
+    this.generate()
     // 70 为 container 两边的 padding, 20 为 item 两边的 margin
 
     wx.setNavigationBarTitle({
@@ -36,14 +44,23 @@ export default {
     this.borderWidth = way > 4 ? `${10 - way}rpx` : '6rpx'
   },
 
+  methods: {
+    generate () {
+      const { way, count } = this.$mp.query
+      this.values = Array.from({ length: count }, x => random(11, way))
+    }
+  },
+
   onUnload () {
     this.values = []
   },
 
   onShareAppMessage () {
+    const { way, count } = this.$mp.query
+
     return {
       title: '11选5小助手',
-      path: '/pages/index/main'
+      path: `/pages/result/main?way=${way}&count=${count}`
     } 
   }
 }

@@ -1,16 +1,21 @@
 <template>
-  <div class="container">
-    <div class="title">任选</div>
-    <div class="list">
-      <div v-for="(way, index) in ways" :key="way" v-text="way" :class="index === wayIndex? 'item.active' : 'item'" @tap="wayIndex = index"></div>
+  <div>
+    <div class="container">
+      <div class="title">任选</div>
+      <div class="list">
+        <div v-for="(way, index) in ways" :key="way" v-text="way" :class="index === wayIndex? 'item.active' : 'item'" @tap="wayIndex = index"></div>
+      </div>
+      <div class="title">注数</div>
+      <div class="list">
+        <div v-for="count in counts" :key="count" v-text="count" :class="index === countIndex ? 'item.active' : 'item'" @tap="countIndex = index"></div>
+      </div>
     </div>
-    <div class="title">注数</div>
-    <div class="list">
-      <div v-for="count in counts" :key="count" v-text="count" :class="index === countIndex ? 'item.active' : 'item'" @tap="countIndex = index"></div>
+    <div class="footer">
+      <navigator :url="url" class="button generate">
+        随机生成
+      </navigator>
+      <button class="share button" open-type="share">分享</button>
     </div>
-    <navigator :url="url">
-      <div class="button">随机生成</div>
-    </navigator>
   </div>
 </template>
 
@@ -77,15 +82,4 @@ export default {
   border-color: #f60;
 }
 
-.button {
-  position: absolute;
-  bottom: 48rpx;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #f60;
-  font-size: 1.3em;
-
-  padding: 32rpx 50rpx;
-  border: 3rpx solid #f60;
-}
 </style>

@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/double/main",
     "pages/index/main",
+    "pages/double/main",
     "pages/result/main"
   ],
   "window": {

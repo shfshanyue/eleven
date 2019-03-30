@@ -11,6 +11,9 @@
       </div>
     </div>
     <div class="footer">
+      <navigator url="/pages/double/main" class="share button">
+        双色球
+      </navigator>
       <navigator :url="url" class="button generate">
         随机生成
       </navigator>
@@ -80,6 +83,15 @@ export default {
 .item.active {
   color: #f60;
   border-color: #f60;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #888;
+  font-size: 1.4em;
+  text-decoration: underline;
 }
 
 </style>

@@ -54,13 +54,13 @@ page {
 }
 
 .generate {
-  flex-basis: 65%;
+  flex-grow: 2;
   background-color: #f60;
   color: #fff;
 }
 
 .share {
-  flex-basis: 35%;
+  flex-grow: 1;
   color: #f60;
 }
 </style>

@@ -38,7 +38,8 @@ export default {
 
     const o = {
       eleven: `11选5模拟器 (${count}注任选${way})`, 
-      double: `双色球`,
+      double: '双色球',
+      super: '大乐透'
     }
     const title = o[type]
     wx.setNavigationBarTitle({
@@ -54,14 +55,17 @@ export default {
     generate () {
       // 我也不知道为啥子在 template 中取不到query
       const { way, count, type } = this.$mp.query
+      this.type = type
       if (type === 'eleven') {
         this.values = Array.from({ length: count }, x => random(11, way))
-        this.type = type
       }
       // 33选6 + 16选1
       if (type === 'double') {
         this.values = Array.from({ length: count }, x => random(33, 6).concat(random(16, 1)))
-        this.type = type
+      }
+      // 35选5 + 12选1
+      if (type === 'super') {
+        this.values = Array.from({ length: count }, x => random(35, 5).concat(random(12, 2)))
       }
     }
   },
@@ -101,6 +105,7 @@ export default {
 }
 
 .item.double:last-child,
+.item.super:nth-last-child(-n+2),
 .item.blue {
   border: 6rpx solid #559;
   border-radius: 50%;

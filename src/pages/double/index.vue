@@ -1,6 +1,11 @@
 <template>
   <div>
     <div class="container">
+      <div class="title">双色球/大乐透</div>
+      <div class="list">
+        <div :class="type === 'double' ? 'item.active' : 'item'" @tap="type = 'double'">双</div>
+        <div :class="type === 'super' ? 'item.active' : 'item'" @tap="type = 'super'">乐</div>
+      </div>
       <div class="title">注数</div>
       <div class="list">
         <div v-for="count in counts" :key="count" v-text="count" :class="index === countIndex ? 'item.active' : 'item'" @tap="countIndex = index"></div>
@@ -20,6 +25,7 @@
 export default {
   data () {
     return {
+      type: 'double',
       counts: [1, 2, 5, 10],
       // 注数
       countIndex: 2
@@ -28,7 +34,7 @@ export default {
   
   computed: {
     url () {
-      return `/pages/result/main?way=7&count=${this.counts[this.countIndex]}&type=double` 
+      return `/pages/result/main?way=7&count=${this.counts[this.countIndex]}&type=${this.type}` 
     }
   },
 

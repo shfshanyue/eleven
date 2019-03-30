@@ -1,10 +1,6 @@
 <template>
   <div>
     <div class="container">
-      <div class="title">任选</div>
-      <div class="list">
-        <div v-for="(way, index) in ways" :key="way" v-text="way" :class="index === wayIndex? 'item.active' : 'item'" @tap="wayIndex = index"></div>
-      </div>
       <div class="title">注数</div>
       <div class="list">
         <div v-for="count in counts" :key="count" v-text="count" :class="index === countIndex ? 'item.active' : 'item'" @tap="countIndex = index"></div>
@@ -24,33 +20,22 @@
 export default {
   data () {
     return {
-      ways: [
-        "一",
-        "二",
-        "三",
-        "四",
-        "五",
-        "六",
-        "七",
-        "八"
-      ],
       counts: [1, 2, 5, 10],
-      wayIndex: 1,
+      // 注数
       countIndex: 2
     }
   },
   
   computed: {
     url () {
-      return `/pages/result/main?way=${this.wayIndex+1}&count=${this.counts[this.countIndex]}&type=eleven` 
+      return `/pages/result/main?way=7&count=${this.counts[this.countIndex]}&type=double` 
     }
   },
 
   onShareAppMessage () {
     return {
-      title: '11选5小助手',
-      path: '/pages/index/main',
-      imageUrl: require('./share.jpeg')
+      title: '双色球模拟器',
+      path: '/pages/double/main'
     } 
   }
 }

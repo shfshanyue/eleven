@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/double/main",
     "pages/index/main",
     "pages/result/main"
   ],

@@ -7,6 +7,7 @@
         </div>
         <div v-for="(v, i) in value" v-text="v" :key="v" :class="'item ' + type" :style="{ width: width + 'rpx', height: width + 'rpx', fontSize: fontSize, borderWidth: borderWidth }"></div>
       </div>
+      <ad unit-id="adunit-8c1fcdbb61a193bb"></ad>
     </div>
     <div class="footer">
       <div class="button generate" @click="generate">
